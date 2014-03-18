@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularBootstrap", "Angular
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Data", "Northwind.Data\Northwind.Data.csproj", "{D46E238B-63FD-4747-9D4E-D57FB00D0FD0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Entity", "Northwind.Entity\Northwind.Entity.csproj", "{7950119B-AD5A-45A2-B50B-2CE16BA9354A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Repository", "Northwind.Repository\Northwind.Repository.csproj", "{8177F7CA-8924-47A5-A9CD-8ACDD5A723BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{D46E238B-63FD-4747-9D4E-D57FB00D0FD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D46E238B-63FD-4747-9D4E-D57FB00D0FD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D46E238B-63FD-4747-9D4E-D57FB00D0FD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7950119B-AD5A-45A2-B50B-2CE16BA9354A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7950119B-AD5A-45A2-B50B-2CE16BA9354A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7950119B-AD5A-45A2-B50B-2CE16BA9354A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7950119B-AD5A-45A2-B50B-2CE16BA9354A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8177F7CA-8924-47A5-A9CD-8ACDD5A723BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8177F7CA-8924-47A5-A9CD-8ACDD5A723BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8177F7CA-8924-47A5-A9CD-8ACDD5A723BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8177F7CA-8924-47A5-A9CD-8ACDD5A723BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
