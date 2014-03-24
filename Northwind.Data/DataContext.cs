@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace Northwind.Data
 {
-    public class DataContext : DbContext, IDataContext, IDataContextAsync
+    public class DataContextBase : DbContext, IDataContext
     {
         private readonly Guid _instanceId;
 
-        public DataContext(string nameOrConnectionString)
+        public DataContextBase(string nameOrConnectionString)
             : base(nameOrConnectionString)
         {
             _instanceId = Guid.NewGuid();

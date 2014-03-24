@@ -20,5 +20,6 @@ namespace Northwind.Repository
         void Delete(TEntity entity);
         IRepositoryQuery<TEntity> Query(Expression<Func<TEntity, bool>> clause = null);
         IQueryable ODataQueryable(ODataQueryOptions<TEntity> oDataQueryOptions);
+        IQueryable<TEntity> All();
     }
 }

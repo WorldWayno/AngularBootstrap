@@ -15,10 +15,10 @@ namespace Northwind.Repository
         IRepository<TEntity>,
         IRepositoryAsync<TEntity> where TEntity : EntityBase
     {
-        private readonly IDataContextAsync _context;
+        private readonly IDataContext _context;
         private readonly DbSet<TEntity> _dbSet;
 
-        public Repository(IDataContextAsync context)
+        public Repository(IDataContext context)
         {
             _context = context;
             _dbSet = context.Set<TEntity>();
@@ -140,12 +140,18 @@ namespace Northwind.Repository
             int? page = null,
             int? pageSize = null)
         {
+
             return Select(query, orderBy, includes, page, pageSize).AsEnumerable();
         }
 
         public IQueryable ODataQueryable(ODataQueryOptions<TEntity> oDataQueryOptions)
         {
             return oDataQueryOptions.ApplyTo(_dbSet);
+        }
+
+        public IQueryable<TEntity> All()
+        {
+            return _dbSet.AsQueryable();
         }
     }
 }
