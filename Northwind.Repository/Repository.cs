@@ -8,6 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http.OData.Query;
 using Northwind.Data;
+using Northwind.Entity;
 
 namespace Northwind.Repository
 {

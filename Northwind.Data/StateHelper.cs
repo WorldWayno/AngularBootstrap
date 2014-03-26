@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.Entity;
+using Northwind.Entity;
 
 namespace Northwind.Data
 {

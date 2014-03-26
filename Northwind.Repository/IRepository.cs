@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Web.Http.OData.Query;
 using Northwind.Data;
+using Northwind.Entity;
 
 namespace Northwind.Repository
 {
