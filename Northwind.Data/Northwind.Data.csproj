@@ -51,6 +51,7 @@
     <Compile Include="IDataContext.cs" />
     <Compile Include="IDataContextAsync.cs" />
     <Compile Include="NorthwindContext.cs" />
+    <Compile Include="NorthwindDatabaseinitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StateHelper.cs" />
   </ItemGroup>
