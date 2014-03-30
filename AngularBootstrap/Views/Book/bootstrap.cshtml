@@ -59,6 +59,9 @@
                             </div>
                             <div class="btn-group">
                                 <button type="button" class="btn btn-primary" data-target="#downloadModal" rel="/build/downloadModal" role="button" data-toggle="modal"><i class="icon-chevron-down icon-white"></i>Download</button>
+                                <button type="button" class="btn btn-primary" data-target="#shareModal" role="button" data-toggle="modal">
+                                    <i class="icon-file icon-white"></i>Save
+                                </button>
                                 <button class="btn btn-primary" href="#clear" id="clear"><i class="icon-trash icon-white"></i>Clear</button>
                             </div>
                         </li>
@@ -2165,6 +2168,14 @@
             </p>
         </div>
         <div class="modal-footer"> <a class="btn" data-dismiss="modal" onclick="javascript:saveHtml();">Save</a> </div>
+    </div>
+    <div class="modal hide fade" role="dialog" id="shareModal">
+        <div class="modal-body">
+            
+        </div>
+        <div class="modal-footer">
+            <a class="btn" data-dismiss="modal" onclick="javascript: saveLayout()">Save</a>
+        </div>
     </div>
 
 </body>

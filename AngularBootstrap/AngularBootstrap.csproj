@@ -530,6 +530,7 @@
     <Content Include="Content\bootswatch.css">
       <DependentUpon>bootswatch.less</DependentUpon>
     </Content>
+    <Content Include="Content\angular-xeditable.css" />
     <Content Include="css\bootstrap-combined.min.css" />
     <Content Include="css\docs.min.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
@@ -636,12 +637,14 @@
     <Content Include="Scripts\angular-cookies.js" />
     <Content Include="Scripts\angular-cookies.min.js" />
     <Content Include="Scripts\angular-csp.css" />
+    <Content Include="Scripts\angular-dragdrop.js" />
     <Content Include="Scripts\angular-loader.js" />
     <Content Include="Scripts\angular-loader.min.js" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular-resource.js" />
     <Content Include="Scripts\angular-resource.min.js" />
     <Content Include="Scripts\angular\controllers\book-controller.js" />
+    <Content Include="Scripts\angular\directives\angular-sortable.js" />
     <Content Include="Scripts\angular\formbuilder\angular-form-builder-components.js" />
     <Content Include="Scripts\angular\formbuilder\angular-form-builder.js" />
     <Content Include="Scripts\angular\formbuilder\angular-validator-rules.js" />
@@ -975,6 +978,13 @@
     <Content Include="Scripts\ui-bootstrap-0.10.0.min.js" />
     <Content Include="Scripts\ui-bootstrap-tpls-0.10.0.js" />
     <Content Include="Scripts\ui-bootstrap-tpls-0.10.0.min.js" />
+    <Content Include="Scripts\angular-xeditable.js" />
+    <Content Include="Views\Book\css\bootstrap-combined.min.css" />
+    <Content Include="Views\Book\css\docs.min.css" />
+    <Content Include="Views\Book\css\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Views\Book\css\img\glyphicons-halflings-white.png" />
+    <Content Include="Views\Book\css\img\glyphicons-halflings.png" />
+    <Content Include="Views\Book\css\layoutit.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -996,6 +1006,9 @@
     <Content Include="Scripts\version.json" />
     <Content Include="Views\Book\bootstrap.cshtml" />
     <Content Include="Views\Book\Angular.cshtml" />
+    <Content Include="Views\Book\css\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Views\Book\css\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Views\Book\css\fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Northwind.Data\Northwind.Data.csproj">

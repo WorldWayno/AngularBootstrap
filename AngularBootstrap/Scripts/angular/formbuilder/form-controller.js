@@ -7,9 +7,9 @@
       component: 'textInput',
       label: 'Name',
       description: 'Your name',
-      placeholder: 'Your name',
-      required: true,
-      editable: false
+      placeholder: 'wayno',
+      required: false,
+      editable: true
     });
     checkbox = $builder.addFormObject('default', {
       component: 'checkbox',
