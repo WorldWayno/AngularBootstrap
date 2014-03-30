@@ -2,6 +2,7 @@
 using System.Data.Entity;
 using System.Threading;
 using System.Threading.Tasks;
+using Northwind.Entity;
 
 namespace Northwind.Data
 {

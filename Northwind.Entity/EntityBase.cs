@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Northwind.Data
+namespace Northwind.Entity
 {
     public class EntityBase : IObjectState
     {

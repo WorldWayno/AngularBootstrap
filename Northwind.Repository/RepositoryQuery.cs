@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Northwind.Data;
+using Northwind.Entity;
 
 namespace Northwind.Repository
 {

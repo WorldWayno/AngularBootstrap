@@ -1,6 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using Northwind.Data;
+using Northwind.Entity;
 
 namespace Northwind.Repository
 {
