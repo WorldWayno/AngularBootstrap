@@ -26,7 +26,7 @@ namespace AngularBootstrap.Controllers
 
             var model = _empRepository.All().ToList();
 
-            return View(model);
+            return RedirectToAction("Bootstrap", "Book");
         }
     }
 }

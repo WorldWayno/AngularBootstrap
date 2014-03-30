@@ -33,8 +33,9 @@ function saveLayout(){
 	if (supportstorage()) {
 		localStorage.setItem("layoutdata",JSON.stringify(data));
 	}
+
 	layouthistory = data;
-	//console.log(data);
+	console.log(data);
 	/*$.ajax({  
 		type: "POST",  
 		url: "/build/saveLayout",  
@@ -331,7 +332,7 @@ $(document).ready(function() {
 	restoreData();
 	var contenthandle = CKEDITOR.replace( 'contenteditor' ,{
 		language: 'en',
-		contentsCss: ['css/bootstrap-combined.min.css'],
+		contentsCss: ['/css/bootstrap-combined.min.css'],
 		allowedContent: true
 	});
 	$("body").css("min-height", $(window).height() - 50);

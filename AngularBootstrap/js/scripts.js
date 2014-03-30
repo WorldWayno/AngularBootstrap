@@ -1,3 +1,4 @@
+
 var webpage = "";
 function supportstorage() {
 	if (typeof window.localStorage=='object') 
@@ -36,34 +37,8 @@ function saveLayout(){
 
 	layouthistory = data;
 	console.log(data);
-	/*$.ajax({  
-		type: "POST",  
-		url: "/build/saveLayout",  
-		data: { layout: $('.demo').html() },  
-		success: function(data) {
-			//updateButtonsVisibility();
-		}
-	});*/
 }
 
- function downloadLayout(){
-	
-	$.ajax({  
-		type: "POST",  
-		url: "/build/downloadLayout",  
-		data: { layout: $('#download-layout').html() },  
-		success: function(data) { window.location.href = '/build/download'; }
-	});
-}
-
-function downloadHtmlLayout(){
-	$.ajax({  
-		type: "POST",  
-		url: "/build/downloadLayout",  
-		data: { layout: $('#download-layout').html() },  
-		success: function(data) { window.location.href = '/build/downloadHtml'; }
-	});
-}
 
 function undoLayout() {
 	var data = layouthistory;
@@ -79,14 +54,6 @@ function undoLayout() {
 		return true;
 	}
 	return false;
-	/*$.ajax({  
-		type: "POST",  
-		url: "/build/getPreviousLayout",  
-		data: { },  
-		success: function(data) {
-			undoOperation(data);
-		}
-	});*/
 }
 
 function redoLayout() {
@@ -103,15 +70,7 @@ function redoLayout() {
 		}
 	}
 	return false;
-	/*
-	$.ajax({  
-		type: "POST",  
-		url: "/build/getPreviousLayout",  
-		data: { },  
-		success: function(data) {
-			redoOperation(data);
-		}
-	});*/
+
 }
 
 function handleJsIds() {
@@ -120,6 +79,7 @@ function handleJsIds() {
 	handleCarouselIds();
 	handleTabsIds()
 }
+
 function handleAccordionIds() {
 	var e = $(".demo #myAccordion");
 	var t = randomNumber();
@@ -175,16 +135,21 @@ function randomNumber() {
 function randomFromInterval(e, t) {
 	return Math.floor(Math.random() * (t - e + 1) + e)
 }
+
+// section column generator
 function gridSystemGenerator() {
-	$(".lyrow .preview input").bind("keyup", function() {
+    console.log('grid system generator')
+    $(".lyrow .preview input").bind("keyup", function () {
 		var e = 0;
 		var t = "";
 		var n = $(this).val().split(" ", 12);
+
 		$.each(n, function(n, r) {
 			e = e + parseInt(r);
 			t += '<div class="span' + r + ' column"></div>'
 		});
-		if (e == 12) {
+
+		if (e != 0) {
 			$(this).parent().next().children().html(t);
 			$(this).parent().prev().show()
 		} else {
@@ -192,6 +157,7 @@ function gridSystemGenerator() {
 		}
 	})
 }
+
 function configurationElm(e, t) {
 	$(".demo").delegate(".configuration > a", "click", function(e) {
 		e.preventDefault();
@@ -321,7 +287,8 @@ function initContainer(){
 			startdrag = 1;
 		},
 		stop: function(e,t) {
-			if(stopsave>0) stopsave--;
+		    handleJsIds();
+		    if (stopsave > 0) stopsave--;
 			startdrag = 0;
 		}
 	});
@@ -332,11 +299,12 @@ $(document).ready(function() {
 	restoreData();
 	var contenthandle = CKEDITOR.replace( 'contenteditor' ,{
 		language: 'en',
-		contentsCss: ['css/bootstrap-combined.min.css'],
+		contentsCss: ['/css/bootstrap-combined.min.css'],
 		allowedContent: true
 	});
-	$("body").css("min-height", $(window).height() - 50);
+	//$("body").css("min-height", $(window).height() - 50);
 	$(".demo").css("min-height", $(window).height() - 130);
+
 	$(".sidebar-nav .lyrow").draggable({
 		connectToSortable: ".demo",
 		helper: "clone",
@@ -374,17 +342,18 @@ $(document).ready(function() {
 			startdrag = 1;
 		},
 		drag: function(e, t) {
-			t.helper.width(400)
+			t.helper.width(200)
 		},
 		stop: function() {
-			handleJsIds();
+			//handleJsIds();
 			if(stopsave>0) stopsave--;
 			startdrag = 0;
 		}
 	});
 	initContainer();
-	$('body.edit .demo').on("click","[data-target=#editorModal]",function(e) {
-		e.preventDefault();
+	$('.edit').on("click","[data-target=#editorModal]",function(e) {
+	    console.log('edit click');
+	    e.preventDefault();
 		currenteditor = $(this).parent().parent().find('.view');
 		var eText = currenteditor.html();
 		contenthandle.setData(eText);
@@ -393,22 +362,12 @@ $(document).ready(function() {
 		e.preventDefault();
 		currenteditor.html(contenthandle.getData());
 	});
-	$("[data-target=#downloadModal]").click(function(e) {
-		e.preventDefault();
-		downloadLayoutSrc();
-	});
+
 	$("[data-target=#shareModal]").click(function(e) {
 		e.preventDefault();
 		handleSaveLayout();
 	});
-	$("#download").click(function() {
-		downloadLayout();
-		return false
-	});
-	$("#downloadhtml").click(function() {
-		downloadHtmlLayout();
-		return false
-	});
+
 	$("#edit").click(function() {
 		$("body").removeClass("devpreview sourcepreview");
 		$("body").addClass("edit");
@@ -416,10 +375,12 @@ $(document).ready(function() {
 		$(this).addClass("active");
 		return false
 	});
+
 	$("#clear").click(function(e) {
 		e.preventDefault();
 		clearDemo()
 	});
+
 	$("#devpreview").click(function() {
 		$("body").removeClass("edit sourcepreview");
 		$("body").addClass("devpreview");
@@ -427,6 +388,7 @@ $(document).ready(function() {
 		$(this).addClass("active");
 		return false
 	});
+
 	$("#sourcepreview").click(function() {
 		$("body").removeClass("edit");
 		$("body").addClass("devpreview sourcepreview");
@@ -434,24 +396,13 @@ $(document).ready(function() {
 		$(this).addClass("active");
 		return false
 	});
-	$("#fluidPage").click(function(e) {
-		e.preventDefault();
-		changeStructure("container", "container-fluid");
-		$("#fixedPage").removeClass("active");
-		$(this).addClass("active");
-		downloadLayoutSrc()
-	});
-	$("#fixedPage").click(function(e) {
-		e.preventDefault();
-		changeStructure("container-fluid", "container");
-		$("#fluidPage").removeClass("active");
-		$(this).addClass("active");
-		downloadLayoutSrc()
-	});
+
+
 	$(".nav-header").click(function() {
 		$(".sidebar-nav .boxes, .sidebar-nav .rows").hide();
 		$(this).next().slideDown()
 	});
+
 	$('#undo').click(function(){
 		stopsave++;
 		if (undoLayout()) initContainer();
@@ -463,41 +414,11 @@ $(document).ready(function() {
 		stopsave--;
 	});
 	removeElm();
-	gridSystemGenerator();
+    gridSystemGenerator();
+
 	setInterval(function() {
 		handleSaveLayout()
 	}, timerSave)
 })
 
-function saveHtml() 
-			{
-			webpage = '<html>\n<head>\n<script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/jquery-2.0.0.min.js"></script>\n<script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/jquery-ui"></script>\n<link href="http://www.francescomalagrino.com/BootstrapPageGenerator/3/css/bootstrap-combined.min.css" rel="stylesheet" media="screen">\n<script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/bootstrap.min.js"></script>\n</head>\n<body>\n'+ webpage +'\n</body>\n</html>'
-			/* FM aka Vegetam Added the function that save the file in the directory Downloads. Work only to Chrome Firefox And IE*/
-			if (navigator.appName =="Microsoft Internet Explorer" && window.ActiveXObject)
-			{
-			var locationFile = location.href.toString();
-			var dlg = false;
-			with(document){
-			ir=createElement('iframe');
-			ir.id='ifr';
-			ir.location='about.blank';
-			ir.style.display='none';
-			body.appendChild(ir);
-			with(getElementById('ifr').contentWindow.document){
-			open("text/html", "replace");
-			charset = "utf-8";
-			write(webpage);
-			close();
-			document.charset = "utf-8";
-			dlg = execCommand('SaveAs', false, locationFile+"webpage.html");
-			}
-    return dlg;
-			}
-			}
-			else{
-			webpage = webpage;
-			var blob = new Blob([webpage], {type: "text/html;charset=utf-8"});
-			saveAs(blob, "webpage.html");
-		}
-		}
 

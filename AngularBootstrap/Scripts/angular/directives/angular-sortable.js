@@ -1,47 +1,53 @@
 ﻿'use strict';
 
-app.directive('myDatepicker', function ($parse, $log) {
+angular.module('sortable', []);
+
+angular.module('sortable').directive('sortable', function() {
     return {
-        restrict: "E",
-        replace: true,
-        transclude: false,
-        compile: function (element, attrs) {
-            var modelAccessor = $parse(attrs.ngModel);
-            $log.info('model', modelAccessor);
-
-            var html = "<input type='text' id='" + attrs.id + "' >" +
-               "</input>";
-
-            var newElem = $(html);
-            element.replaceWith(newElem);
-
-            return function (scope, element, attrs, controller) {
-
-                var processChange = function () {
-                    var date = new Date(element.datepicker("getDate"));
-                    $log.info('date', date);
-                    scope.$apply(function (scope) {
-                        // Change bound variable
-                        modelAccessor.assign(scope, date);
-                    });
+        restrict: 'A',
+        require: '?ngModel',
+        link: function(scope, element, attrs, ngModel) {
+            if (ngModel) {
+                ngModel.$render = function() {
+                    element.sortable('refresh');
                 };
+            }
 
-                element.datepicker({
-                    showOn: 'both',
-                    autoSize: true,
-                    inline: true,
-                    onClose: processChange,
-                    onSelect: processChange
-                });
+            element.sortable({
+                connectWith: attrs.sortableSelector,
+                cancel: 'a',
+                revert: true,
+                remove: function(e, ui) {
+                    if (ngModel.$modelValue.length === 1) {
+                        ui.item.sortable.moved = ngModel.$modelValue.splice(0, 1)[0];
+                    } else {
+                        ui.item.sortable.moved = ngModel.$modelValue.splice(ui.item.sortable.index, 1)[0];
+                    }
+                },
+                receive: function(e, ui) {
+                    ui.item.sortable.relocate = true;
+                    ngModel.$modelValue.splice(ui.item.index(), 0, ui.item.sortable.moved);
+                },
+                update: function(e, ui) {
+                    ui.item.sortable.resort = ngModel;
+                },
+                start: function(e, ui) {
+                    ui.item.sortable = { index: ui.item.index(), resort: ngModel };
+                },
+                stop: function(e, ui) {
+                    if (ui.item.sortable.resort && !ui.item.sortable.relocate) {
+                        var end, start;
+                        start = ui.item.sortable.index;
+                        end = ui.item.index();
 
-                scope.$watch(modelAccessor, function (val) {
-                    var date = new Date(val);
-                    $log.info('watch', date);
-                    element.datepicker("setDate", date);
-                });
-
-            };
-
+                        ui.item.sortable.resort.$modelValue.splice(end, 0, ui.item.sortable.resort.$modelValue.splice(start, 1)[0]);
+                    }
+                    if (ui.item.sortable.resort || ui.item.sortable.relocate) {
+                        scope.$apply();
+                    }
+                    setTimeout()
+                }
+            });
         }
     };
 });
