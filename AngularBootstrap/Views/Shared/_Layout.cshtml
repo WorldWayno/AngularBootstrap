@@ -5,37 +5,42 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/jqueryui/css")
-    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/angular/css")
+    <link href="~/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link href="~/css/layoutit.css" rel="stylesheet">
+    @RenderSection("head",required: false)
 
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body ng-app="app" ng-cloak>
+<body style="min-height: 660px; cursor: auto;" ng-app="app" ng-cloak>
     <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Book Builder", "Index", "Home", null, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("Bootstrap", "Bootstrap", "Book", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("Angular", "Angular", "Book", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
-                </ul>
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <div class="nav-collapse">
+                    <ul class="nav" id="menu-layoutit">
+                        <li class="divider-vertical"></li>
+                        <li>
+                            <div class="btn-group" data-toggle="buttons-radio">
+                                <button type="button" id="edit" class="btn btn-primary active"><i class="icon-edit icon-white"></i>Toolbox</button>
+                                <button type="button" class="btn btn-primary" id="devpreview"><i class="icon-eye-close icon-white"></i>Full view</button>
+                                @*<button type="button" class="btn btn-primary" id="sourcepreview"><i class="icon-eye-open icon-white"></i>Preview</button>*@
+                            </div>
+                            <div class="btn-group">
+                                @*<button type="button" class="btn btn-primary" data-target="#downloadModal" rel="/build/downloadModal" role="button" data-toggle="modal"><i class="icon-chevron-down icon-white"></i>Download</button>*@
+                                <button type="button" class="btn btn-primary" data-target="#shareModal" role="button" data-toggle="modal">
+                                    <i class="icon-file icon-white"></i>Save
+                                </button>
+                                <button class="btn btn-primary" href="#clear" id="clear"><i class="icon-trash icon-white"></i>Clear</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div class="container-fluid">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")

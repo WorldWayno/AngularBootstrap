@@ -24,8 +24,9 @@ namespace AngularBootstrap
 
             bundles.Add(new ScriptBundle("~/bundles/angular/vendor").Include(
                 "~/scripts/angular/vendor/angular.js",
-                "~/scripts/angular/vendor/angular-bootstrap.js",
-                "~/scripts/angular/vendor/angular-ui.js"
+                "~/scripts/angular/vendor/angular-ui.js",
+                "~/scripts/angular/vendor/angular-xeditable.js",
+                "~/scripts/angular/vendor/angular-dragdrop.js"
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/angular/app").Include(
@@ -40,6 +41,10 @@ namespace AngularBootstrap
 
             bundles.Add(new StyleBundle("~/Content/jqueryui/css").Include(
                 "~/content/themes/base/jquery-ui.css"
+                ));
+
+            bundles.Add(new StyleBundle("~/Content/angular/css").Include(
+                    "~/content/angular-csp.css"
                 ));
 
             //bundles.Add(new LessBundle("~/content/bootswatch").Include(

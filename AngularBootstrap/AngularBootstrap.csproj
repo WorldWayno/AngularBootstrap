@@ -533,6 +533,7 @@
     <Content Include="Content\bootswatch.css">
       <DependentUpon>bootswatch.less</DependentUpon>
     </Content>
+    <Content Include="Content\angular-xeditable.css" />
     <Content Include="css\bootstrap-combined.min.css" />
     <Content Include="css\docs.min.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
@@ -541,6 +542,7 @@
     <Content Include="css\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="css\img\glyphicons-halflings-white.png" />
     <Content Include="css\img\glyphicons-halflings.png" />
+    <Content Include="css\layoutit_org.css" />
     <Content Include="css\layoutit.css" />
     <Content Include="Content\select2.css" />
     <Content Include="Content\select2.png" />
@@ -625,6 +627,7 @@
     <Content Include="js\jquery.htmlClean.js" />
     <Content Include="js\jquery.ui.touch-punch.min.js" />
     <Content Include="js\pick-a-color-1.2.2.min.js" />
+    <Content Include="js\scripts_org.js" />
     <Content Include="js\scripts.js" />
     <Content Include="js\scripts_new.js" />
     <Content Include="js\tinycolor-0.9.15.min.js" />
@@ -638,13 +641,16 @@
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-cookies.js" />
     <Content Include="Scripts\angular-cookies.min.js" />
-    <Content Include="Scripts\angular-csp.css" />
+    <Content Include="Content\angular-csp.css" />
+    <Content Include="Scripts\angular\vendor\angular-dragdrop.js" />
     <Content Include="Scripts\angular-loader.js" />
     <Content Include="Scripts\angular-loader.min.js" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular-resource.js" />
     <Content Include="Scripts\angular-resource.min.js" />
     <Content Include="Scripts\angular\controllers\book-controller.js" />
+    <Content Include="Scripts\angular\controllers\bootstrap-controller.js" />
+    <Content Include="Scripts\angular\directives\angular-sortable.js" />
     <Content Include="Scripts\angular\formbuilder\angular-form-builder-components.js" />
     <Content Include="Scripts\angular\formbuilder\angular-form-builder.js" />
     <Content Include="Scripts\angular\formbuilder\angular-validator-rules.js" />
@@ -712,7 +718,6 @@
     <Content Include="ckeditor\README.me" />
     <Content Include="ckeditor\samples\plugins\htmlwriter\assets\outputforflash\outputforflash.fla" />
     <Content Include="ckeditor\skins\moono\readme.md" />
-    <None Include="Scripts\jquery-2.1.0.intellisense.js" />
     <Content Include="Scripts\FileSaver.js" />
     <Content Include="Scripts\html5shiv-printshiv.js" />
     <Content Include="Scripts\html5shiv-printshiv.min.js" />
@@ -963,8 +968,9 @@
     <Content Include="Scripts\i18n\angular-locale_zh.js" />
     <Content Include="Scripts\i18n\angular-locale_zu-za.js" />
     <Content Include="Scripts\i18n\angular-locale_zu.js" />
-    <Content Include="Scripts\jquery-2.1.0.js" />
-    <Content Include="Scripts\jquery-2.1.0.min.js" />
+    <None Include="Scripts\jquery-1.10.0.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.0.js" />
+    <Content Include="Scripts\jquery-1.10.0.min.js" />
     <Content Include="Scripts\jquery-ui-1.10.4.js" />
     <Content Include="Scripts\jquery-ui-1.10.4.min.js" />
     <Content Include="Scripts\jquery.htmlClean.js" />
@@ -972,12 +978,13 @@
     <Content Include="Scripts\modernizr-2.7.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\scripts.js" />
     <Content Include="Scripts\select2.js" />
     <Content Include="Scripts\select2.min.js" />
     <Content Include="Scripts\ui-bootstrap-0.10.0.min.js" />
     <Content Include="Scripts\ui-bootstrap-tpls-0.10.0.js" />
     <Content Include="Scripts\ui-bootstrap-tpls-0.10.0.min.js" />
+    <Content Include="Scripts\angular\vendor\angular-xeditable.js" />
+    <Content Include="Views\Book\boostrap_org.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -995,10 +1002,11 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Scripts\jquery-2.1.0.min.map" />
     <Content Include="Scripts\version.json" />
     <Content Include="Views\Book\bootstrap.cshtml" />
     <Content Include="Views\Book\Angular.cshtml" />
+    <Content Include="Views\Book\Angular_org.cshtml" />
+    <Content Include="Scripts\jquery-1.10.0.min.map" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Northwind.Data\Northwind.Data.csproj">
