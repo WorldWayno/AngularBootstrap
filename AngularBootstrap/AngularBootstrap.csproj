@@ -683,6 +683,7 @@
     <Content Include="Content\variables.less" />
     <Content Include="Scripts\angular\app.js" />
     <Content Include="Scripts\angular\vendor\angular-bootstrap.js" />
+    <Content Include="Scripts\angular\vendor\ng-infinite-scroll.js" />
     <Content Include="Scripts\blob.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -968,6 +969,8 @@
     <None Include="Scripts\jquery-1.10.0.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.0.js" />
     <Content Include="Scripts\jquery-1.10.0.min.js" />
+    <Content Include="Scripts\jquery-migrate-1.2.1.js" />
+    <Content Include="Scripts\jquery-migrate-1.2.1.min.js" />
     <Content Include="Scripts\jquery-ui-1.10.4.js" />
     <Content Include="Scripts\jquery-ui-1.10.4.min.js" />
     <Content Include="Scripts\jquery.htmlClean.js" />

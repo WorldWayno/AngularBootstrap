@@ -317,7 +317,8 @@ $(document).ready(function() {
 			t.helper.width(400)
 		},
 		stop: function(e, t) {
-			$(".demo .column").sortable({
+            //.demo .column
+		    $(".demo .column").sortable({
 				opacity: .35,
 				connectWith: ".column",
 				start: function(e,t) {

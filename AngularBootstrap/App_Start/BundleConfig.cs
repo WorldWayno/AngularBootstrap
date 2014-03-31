@@ -10,6 +10,7 @@ namespace AngularBootstrap
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
+                        "~/scripts/jquery-migrate-{version}.js",
                         "~/Scripts/jquery-ui-{version}.js"
                         ));
 
@@ -26,7 +27,8 @@ namespace AngularBootstrap
                 "~/scripts/angular/vendor/angular.js",
                 "~/scripts/angular/vendor/angular-ui.js",
                 "~/scripts/angular/vendor/angular-xeditable.js",
-                "~/scripts/angular/vendor/angular-dragdrop.js"
+                "~/scripts/angular/vendor/angular-dragdrop.js",
+                "~/scripts/angular/vendor/ng-infinite-scroll.js"
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/angular/app").Include(
