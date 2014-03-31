@@ -15,8 +15,8 @@ namespace AngularBootstrap.Controllers
 
         public HomeController(IUnitOfWork  unitOfWork)
         {
-            _unitOfWork = unitOfWork;
-            _empRepository = unitOfWork.Repository<Employee>();
+            //_unitOfWork = unitOfWork;
+           // _empRepository = unitOfWork.Repository<Employee>();
 
         }
 
@@ -24,7 +24,7 @@ namespace AngularBootstrap.Controllers
         {
             ViewBag.Title = "Home Page";
 
-            var model = _empRepository.All().ToList();
+            //var model = _empRepository.All().ToList();
 
             return RedirectToAction("Bootstrap", "Book");
         }

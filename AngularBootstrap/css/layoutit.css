@@ -98,7 +98,7 @@
 	transition: all 500ms ease;
 }
 .demo .drag, .demo .remove {
-	filter: alpha(opacity=20); opacity: 0.2;
+     opacity: 0.2;
 	-webkit-transition: all 500ms ease;
 	-moz-transition: all 500ms ease;
 	-ms-transition: all 500ms ease;
